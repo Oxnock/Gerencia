@@ -12536,11 +12536,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jsezu\\Desktop\\hhhh\\quickstart\\01-login\\SampleMvcApp.csproj",
+      "projectUniqueName": "C:\\Users\\jsezu\\Documents\\GitHub\\Gerencia\\01-login\\SampleMvcApp.csproj",
       "projectName": "SampleMvcApp",
-      "projectPath": "C:\\Users\\jsezu\\Desktop\\hhhh\\quickstart\\01-login\\SampleMvcApp.csproj",
+      "projectPath": "C:\\Users\\jsezu\\Documents\\GitHub\\Gerencia\\01-login\\SampleMvcApp.csproj",
       "packagesPath": "C:\\Users\\jsezu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jsezu\\Desktop\\hhhh\\quickstart\\01-login\\obj\\",
+      "outputPath": "C:\\Users\\jsezu\\Documents\\GitHub\\Gerencia\\01-login\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
