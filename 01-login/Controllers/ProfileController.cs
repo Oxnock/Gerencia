@@ -16,7 +16,7 @@ namespace SampleMvcApp.Controllers
         public ActionResult Index()
         {
             sql3283190Context context = HttpContext.RequestServices.GetService(typeof(sql3283190Context)) as sql3283190Context;
-
+            HomeController.FormInicialFlag = true;
             return View(context.ObtenerPersona(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value));
 
             //return View();

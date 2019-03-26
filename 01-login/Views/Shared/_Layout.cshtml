@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using SampleMvcApp.Controllers
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -26,25 +27,37 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">SampleMvcApp</a>
+                @if (HomeController.FormInicialFlag == true)
+                {
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">SampleMvcApp</a>
+                }
+              
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+                    @if (HomeController.FormInicialFlag == true)
+                    {
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                </ul>
+                    }
+                    </ul>
                 <!-- Views/Shared/_Layout.cshtml -->
 
                 <ul class="nav navbar-nav navbar-right">
                     @if (User.Identity.IsAuthenticated)
                     {
-                       
-                        <li><a asp-controller="Profile" asp-action="FORMINICIAL">Modificar Perfil</a></li>
-                        <li><a asp-controller="Profile" asp-action="Index">Perfil</a></li>
 
-                        <li><a asp-controller="Account" asp-action="Profile">Hello @User.Identity.Name!</a></li>
-                        <li><a asp-controller="Account" asp-action="Logout">Logout</a></li>
+                        @if (HomeController.FormInicialFlag == true)
+                        {
+                            <li><a asp-controller="Profile" asp-action="Index">Perfil</a></li>
 
-                        
+                            <li><a asp-controller="Account" asp-action="Profile">Hello @User.Identity.Name!</a></li>
+                            <li><a asp-controller="Account" asp-action="Logout">Logout</a></li>
+                        }
+
+                        //<li><a asp-controller="Profile" asp-action="FORMINICIAL">Modificar Perfil</a></li>
+
+
+
                     }
                     else
                     {

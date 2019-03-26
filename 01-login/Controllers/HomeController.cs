@@ -11,6 +11,11 @@ namespace SampleMvcApp.Controllers
 {
     public class HomeController : Controller
     {
+
+        public static bool FormInicialFlag = true;
+
+
+
         public async Task<IActionResult> Index()
         {
             // If the user is authenticated, then this is how you can get the access_token and id_token
@@ -31,12 +36,6 @@ namespace SampleMvcApp.Controllers
                 // Now you can use them. For more info on when and how to use the
                 // access_token and id_token, see https://auth0.com/docs/tokens
 
-
-
-
-
-
-
                 
                 // HECHO POR MACHO
 
@@ -46,21 +45,16 @@ namespace SampleMvcApp.Controllers
                 // aqui lo que hago es asegurarme que si el usuario audentificado esta en la base sino para meterlo 
                 if (context.BuscarPersonaCorreoValidar(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value) == false)
                 {
-                   // return RedirectToAction("FORMINICIAL", "Profile"); amodar esta verga abajo
+                    //  amodar esta verga abajo
                     context.InsertarUsuarioPrimeraVez(User.Identity.Name, User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value, User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.MobilePhone)?.Value); // este metodo lo que hace es insertar por primera ves en la base
-                  // no borrar
+                    FormInicialFlag = false;
+
+                    return RedirectToAction("FORMINICIAL", "Profile");
+
+                    // no borrar
                 }
-
-
-
-
-
-
-
-
-
             }
-
+            FormInicialFlag = true;
             return View();
         }
 
