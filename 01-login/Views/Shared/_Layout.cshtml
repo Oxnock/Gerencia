@@ -37,8 +37,14 @@
                 <ul class="nav navbar-nav navbar-right">
                     @if (User.Identity.IsAuthenticated)
                     {
+                       
+                        <li><a asp-controller="Profile" asp-action="FORMINICIAL">Modificar Perfil</a></li>
+                        <li><a asp-controller="Profile" asp-action="Index">Perfil</a></li>
+
                         <li><a asp-controller="Account" asp-action="Profile">Hello @User.Identity.Name!</a></li>
                         <li><a asp-controller="Account" asp-action="Logout">Logout</a></li>
+
+                        
                     }
                     else
                     {

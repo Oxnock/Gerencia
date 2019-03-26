@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SampleMvcApp.Data;
 using SampleMvcApp.Models;
 using System.Linq;
 using System.Security.Claims;
@@ -15,6 +16,7 @@ namespace SampleMvcApp.Controllers
         public async Task Login(string returnUrl = "/")
         {
             await HttpContext.ChallengeAsync("Auth0", new AuthenticationProperties() { RedirectUri = returnUrl });
+
         }
 
         [Authorize]
@@ -34,7 +36,7 @@ namespace SampleMvcApp.Controllers
         [Authorize]
         public IActionResult Profile()
         {
-            return View(new UserProfileModel()
+            return View(new ProfileModel()
             {
                 Name = User.Identity.Name,
                 EmailAddress = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value,

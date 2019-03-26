@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -9,6 +10,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using SampleMvcApp.Data;
+using SampleMvcApp.Models;
 using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -33,6 +36,9 @@ namespace SampleMvcApp
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => HostingEnvironment.IsProduction();
+
+
+                ProfileModel Persona = new ProfileModel();
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
@@ -105,6 +111,9 @@ namespace SampleMvcApp
 
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            
+            services.Add(new ServiceDescriptor(typeof(sql3283190Context), new sql3283190Context(Configuration.GetConnectionString("DefaultConnection"))));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -131,6 +140,8 @@ namespace SampleMvcApp
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+          
         }
     }
 }

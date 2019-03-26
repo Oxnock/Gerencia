@@ -1,8 +1,11 @@
 using System;
 using System.Globalization;
+using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
+using SampleMvcApp.Data;
 
 namespace SampleMvcApp.Controllers
 {
@@ -27,6 +30,34 @@ namespace SampleMvcApp.Controllers
 
                 // Now you can use them. For more info on when and how to use the
                 // access_token and id_token, see https://auth0.com/docs/tokens
+
+
+
+
+
+
+
+                
+                // HECHO POR MACHO
+
+
+                sql3283190Context context = HttpContext.RequestServices.GetService(typeof(sql3283190Context)) as sql3283190Context;
+
+                // aqui lo que hago es asegurarme que si el usuario audentificado esta en la base sino para meterlo 
+                if (context.BuscarPersonaCorreoValidar(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value) == false)
+                {
+                    context.InsertarUsuarioPrimeraVez(User.Identity.Name, User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value, User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.MobilePhone)?.Value); // este metodo lo que hace es insertar por primera ves en la base
+
+                }
+
+
+
+
+
+
+
+
+
             }
 
             return View();

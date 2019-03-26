@@ -1,0 +1,127 @@
+﻿@*@model SampleMvcApp.Models.ProfileModel*@ @*esto esta malo maes porque tengo que pasar una lista o bueno asi lo hicieron que fuera una lista sino si dejenlo asi y no pasen una lista*@
+@*@model IEnumerable<SampleMvcApp.Models.ProfileModel>*@
+@model SampleMvcApp.Models.ProfileModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@*HECHO POR MACHO*@
+
+@*<div>
+    <h4>UserProfileModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @foreach (var item in Model)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.EmailAddress)
+            </dt>
+            <dd>
+                @Html.DisplayFor(modelItem => item.EmailAddress)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(modelItem => item.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.FirstLastName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(modelItem => item.FirstLastName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SecondLastName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(modelItem => item.SecondLastName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </dt>
+            <dd>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PersonID)
+            </dt>
+            <dd>
+                @Html.DisplayFor(modelItem => item.PersonID)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.IDType)
+            </dt>
+            <dd>
+                @Html.DisplayFor(modelItem => item.IDType)
+            </dd>
+        }
+    </dl>
+</div>*@
+
+
+
+
+
+
+
+
+
+@*Asi era como lo tenian ustedes*@
+
+<div>
+        <h4>UserProfileModel</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.EmailAddress)
+            </dt>
+            <dd>
+                @Html.DisplayFor(  model => model.EmailAddress)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.FirstLastName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FirstLastName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SecondLastName)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.SecondLastName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PhoneNumber)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PersonID)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PersonID)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.IDType)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.IDType)
+            </dd>
+        </dl>
+    </div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

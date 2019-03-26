@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace SampleMvcApp.Models
 {
-    public class UserProfileModel
+    public class ProfileModel
     {
         public string EmailAddress { get; set; }
 
@@ -20,6 +20,5 @@ namespace SampleMvcApp.Models
         public string PersonID { get; set; }
 
         public string IDType { get; set; }
-
     }
 }
