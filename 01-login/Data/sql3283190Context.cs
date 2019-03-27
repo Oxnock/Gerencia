@@ -57,8 +57,8 @@ namespace SampleMvcApp.Data
                using (MySqlConnection conn = GetConnection())
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand("Update  'usuarios' set 'Nombre' =" + nombre + ", 'Apellido1' =" + apellido1 + ", 'Apellido2' =" + apellido2 + " , 'NumeroTelefono' =" + telefono + ", 'Cedula' =" + personaID + ", 'TipoCedula' =" + tipoID + "WHERE 'Correo' = '" + email + "';", conn);
-                MySqlCommand cmd2 = new MySqlCommand("INSERT INTO  'usuarios'('Apellido1', 'Apellido2', 'NumeroTelefono', 'Cedula', TipoCedula) VALUES('" + apellido1 + "','" + apellido2 + "','" + telefono + "','" + personaID + "','" + tipoID + "') WHERE Correo = '" + email + "'", conn);
+                MySqlCommand cmd = new MySqlCommand("Update  'usuarios' SET 'Nombre' ='" + nombre + "', 'Apellido1' ='" + apellido1 + "', 'Apellido2' ='" + apellido2 + "' , 'NumeroTelefono' ='" + telefono + "', 'Cedula' ='" + personaID + "', 'TipoCedula' ='" + tipoID + "' WHERE 'Correo' = '" + email + "';", conn);
+            //    MySqlCommand cmd2 = new MySqlCommand("INSERT INTO  'usuarios'('Apellido1', 'Apellido2', 'NumeroTelefono', 'Cedula', TipoCedula) VALUES('" + apellido1 + "','" + apellido2 + "','" + telefono + "','" + personaID + "','" + tipoID + "') WHERE Correo = '" + email + "'", conn);
 
             }
         }
