@@ -58,7 +58,7 @@ namespace SampleMvcApp.Data
             {
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand("UPDATE `usuarios` SET `Nombre`='" + nombre + "',`Apellido1`='" + apellido1 + "',`Apellido2`='" + apellido2 + "',`NumeroTelefono`='" + telefono + "' WHERE Correo = '" + email + "'", conn);
-                //    MySqlCommand cmd2 = new MySqlCommand("INSERT INTO  'usuarios'('Apellido1', 'Apellido2', 'NumeroTelefono', 'Cedula', TipoCedula) VALUES('" + apellido1 + "','" + apellido2 + "','" + telefono + "','" + personaID + "','" + tipoID + "') WHERE Correo = '" + email + "'", conn);
+               
                 using (var reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -154,58 +154,5 @@ namespace SampleMvcApp.Data
 
 
 
-
-
-
-
-
-
-
-
-
-
-        //public List<ProfileModel> GetAllAlbums()
-        //{
-        //    List<ProfileModel> list = new List<ProfileModel>();
-
-        //    using (MySqlConnection conn = GetConnection())
-        //    {
-        //        conn.Open();
-        //        MySqlCommand cmd = new MySqlCommand("select * from usuarios ", conn);
-
-        //        using (var reader = cmd.ExecuteReader())
-        //        {
-        //            while (reader.Read())
-        //            {
-        //                list.Add(new ProfileModel()
-        //                {
-        //                    //ARREGLAR CON LO LA BASE DE ERICK
-
-        //                    //PersonID = reader["ID"].ToString(),
-        //                    //Name = reader["Name"].ToString(),
-        //                    //FirstLastName = reader["FirstLastName"].ToString(),
-        //                    //SecondLastName = reader["SecondLastName"].ToString(),
-        //                    //EmailAddress = reader["EmailAddress"].ToString(),
-        //                    //PhoneNumber = reader["phonenumber"].ToString(),
-        //                    //IDType = reader["genre"].ToString()
-
-        //                    //HECHO POR MACHO
-
-
-        //                    Name = reader["Nombre"].ToString(),
-        //                    FirstLastName = reader["Apellido1"].ToString(),
-        //                    SecondLastName = reader["Apellido2"].ToString(),
-        //                    PersonID = reader["Cedula"].ToString(),
-        //                    EmailAddress = reader["Correo"].ToString(),
-        //                    PhoneNumber = reader["NumeroTelefono"].ToString(),
-        //                    IDType = reader["TipoCedula"].ToString()
-
-
-        //                });
-        //            }
-        //        }
-        //    }
-        //    return list;
-        //}
     }
 }

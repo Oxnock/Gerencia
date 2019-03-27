@@ -2,9 +2,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="icon" type="image/png" href="~/images/Logo2.png" />  @*esto es para poner el icono en la pestaña*@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - SampleMvcApp</title>
+    <title>@ViewData["Title"] - Taller Billy</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -29,18 +30,21 @@
                 </button>
                 @if (HomeController.FormInicialFlag == true)
                 {
-                    <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">SampleMvcApp</a>
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Taller Billy</a>
                 }
               
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    @if (HomeController.FormInicialFlag == true)
-                    {
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    }
-                    </ul>
-                <!-- Views/Shared/_Layout.cshtml -->
+
+                @*<ul class="nav navbar-nav">
+        @if (HomeController.FormInicialFlag == true)
+        {
+        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+        }
+        </ul>*@
+
+
+                <!-- Views/Shared/_Layout.cshtml --> <!--Esto ya estaba comentado anteriormenete-->
 
                 <ul class="nav navbar-nav navbar-right">
                     @if (User.Identity.IsAuthenticated)
@@ -50,7 +54,7 @@
                         {
                             <li><a asp-controller="Profile" asp-action="Index">Perfil</a></li>
 
-                            <li><a asp-controller="Account" asp-action="Profile">Hello @User.Identity.Name!</a></li>
+                            //<li><a asp-controller="Account" asp-action="Profile">Hello @User.Identity.Name!</a></li> lo comente ya que no sirve de mucho
                             <li><a asp-controller="Account" asp-action="Logout">Logout</a></li>
                         }
 
@@ -74,7 +78,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2018 - SampleMvcApp</p>
+            <p>&copy; 2019 - Taller Billy</p>
         </footer>
     </div>
 
