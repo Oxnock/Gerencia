@@ -52,6 +52,26 @@ namespace SampleMvcApp.Data
 
         }
 
+        public void EditarUsuario(string nombre, string apellido1, string apellido2, string telefono, string email)
+        {
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("UPDATE `usuarios` SET `Nombre`='" + nombre + "',`Apellido1`='" + apellido1 + "',`Apellido2`='" + apellido2 + "',`NumeroTelefono`='" + telefono + "' WHERE Correo = '" + email + "'", conn);
+                //    MySqlCommand cmd2 = new MySqlCommand("INSERT INTO  'usuarios'('Apellido1', 'Apellido2', 'NumeroTelefono', 'Cedula', TipoCedula) VALUES('" + apellido1 + "','" + apellido2 + "','" + telefono + "','" + personaID + "','" + tipoID + "') WHERE Correo = '" + email + "'", conn);
+                using (var reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+
+                        //aqui debo darle lo que vale cada valor del modelo 
+
+                    }
+                }
+            }
+
+        }
+
         public void UpdateFormInicial(string nombre, string apellido1, string apellido2, string telefono, string personaID, string tipoID , string email)
         {
                using (MySqlConnection conn = GetConnection())

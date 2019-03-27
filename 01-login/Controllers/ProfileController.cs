@@ -61,11 +61,17 @@ namespace SampleMvcApp.Controllers
         // POST: Profile/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(string command, ProfileModel profileModel, int id, IFormCollection collection)
         {
+            sql3283190Context context = HttpContext.RequestServices.GetService(typeof(sql3283190Context)) as sql3283190Context;
+            string correo = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
+
             try
             {
-                // TODO: Add update logic here
+                if (command == "submit")
+                {
+                    context.EditarUsuario(profileModel.Name, profileModel.FirstLastName, profileModel.SecondLastName, profileModel.PhoneNumber, correo);
+                }
 
                 return RedirectToAction(nameof(Index));
             }
