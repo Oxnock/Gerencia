@@ -52,6 +52,16 @@ namespace SampleMvcApp.Data
 
         }
 
+        public void UpdateFormInicial(string nombre, string apellido1, string apellido2, string telefono, string personaID, string tipoID , string email)
+        {
+               using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("Update  'usuarios' set 'Nombre' =" + nombre + ", 'Apellido1' =" + apellido1 + ", 'Apellido2' =" + apellido2 + " , 'NumeroTelefono' =" + telefono + ", 'Cedula' =" + personaID + ", 'TipoCedula' =" + tipoID + "WHERE 'Correo' = '" + email + "';", conn);
+                MySqlCommand cmd2 = new MySqlCommand("INSERT INTO  'usuarios'('Apellido1', 'Apellido2', 'NumeroTelefono', 'Cedula', TipoCedula) VALUES('" + apellido1 + "','" + apellido2 + "','" + telefono + "','" + personaID + "','" + tipoID + "') WHERE Correo = '" + email + "'", conn);
+
+            }
+        }
         public void InsertarUsuarioPrimeraVez(string nombre, string correo, string celular) // aqui lo que hago es insertar un usuario por primera vez
         {
             ProfileModel Persona = new ProfileModel();

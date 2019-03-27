@@ -59,7 +59,7 @@ using SampleMvcApp;
             WriteLiteral("\r\n<h2>ProfileView</h2>\r\n\r\n<p>\r\n    ");
             EndContext();
             BeginContext(185, 37, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e0055a5c87ed4e0d9152b511fc75d9b6", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "051ba9cd12764074a7a8ed3c16b782c6", async() => {
                 BeginContext(208, 10, true);
                 WriteLiteral("Create New");
                 EndContext();

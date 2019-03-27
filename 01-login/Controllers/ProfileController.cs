@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SampleMvcApp.Data;
+using SampleMvcApp.Models;
 
 namespace SampleMvcApp.Controllers
 {
@@ -82,11 +83,17 @@ namespace SampleMvcApp.Controllers
         // POST: Profile/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult FORMINICIAL(int id, IFormCollection collection)
+        public ActionResult FORMINICIAL(string command, ProfileModel profileModel ,int id, IFormCollection collection)
         {
+            sql3283190Context context = HttpContext.RequestServices.GetService(typeof(sql3283190Context)) as sql3283190Context;
+            string correo = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value;
             try
             {
-                
+                if (command == "submit")
+                {
+                    context.UpdateFormInicial(profileModel.Name, profileModel.FirstLastName, profileModel.SecondLastName, profileModel.PhoneNumber, profileModel.PersonID, profileModel.IDType, correo);
+                }
+                    
 
 
 
