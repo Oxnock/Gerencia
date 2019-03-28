@@ -46,7 +46,7 @@ namespace SampleMvcApp.Controllers
                 if (context.BuscarPersonaCorreoValidar(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value) == false)
                 {
                     //  amodar esta verga abajo
-                    context.InsertarUsuarioPrimeraVez(User.Identity.Name, User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value, User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.MobilePhone)?.Value); // este metodo lo que hace es insertar por primera ves en la base
+                   // context.InsertarUsuarioPrimeraVez(User.Identity.Name, User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Email)?.Value, User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.MobilePhone)?.Value); // este metodo lo que hace es insertar por primera ves en la base
                     FormInicialFlag = false;
 
                     return RedirectToAction("FORMINICIAL", "Profile");

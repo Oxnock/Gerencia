@@ -97,7 +97,7 @@ namespace SampleMvcApp.Controllers
             {
                 if (command == "submit")
                 {
-                    context.UpdateFormInicial(profileModel.Name, profileModel.FirstLastName, profileModel.SecondLastName, profileModel.PhoneNumber, profileModel.PersonID, profileModel.IDType, correo);
+                    context.InsertFormInicial(profileModel.Name, profileModel.FirstLastName, profileModel.SecondLastName, profileModel.PhoneNumber, profileModel.PersonID, profileModel.IDType, correo);
                 }
                     
 

@@ -42,13 +42,13 @@ namespace SampleMvcApp.Data
                 }
                 if (Persona.Name != null)
                 {
-                    return true;
+                    return true; //retorna true cuando fue encontrado
 
                 }
                 
             }
 
-            return false;
+            return false; // retorna false si no fue encontrado
 
         }
 
@@ -72,12 +72,13 @@ namespace SampleMvcApp.Data
 
         }
 
-        public void UpdateFormInicial(string nombre, string apellido1, string apellido2, string telefono, string personaID, string tipoID , string email)
+        public void InsertFormInicial(string nombre, string apellido1, string apellido2, string telefono, string personaID, string tipoID , string email)
         {
                using (MySqlConnection conn = GetConnection())
             {
                 conn.Open();
-                MySqlCommand cmd = new MySqlCommand("UPDATE `usuarios` SET `Nombre`='"+nombre+"',`Apellido1`='"+apellido1+"',`Apellido2`='"+apellido2+"',`NumeroTelefono`='"+telefono+"',`Cedula`='"+personaID+"',`TipoCedula`='"+tipoID+"' WHERE Correo = '"+email+"'", conn);
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO `usuarios`( `Nombre`, `Apellido1`, `Apellido2`, `NumeroTelefono`, `Cedula`, `TipoCedula`, `Correo`) VALUES( '"+nombre+"','"+apellido1+"','"+apellido2+"','"+telefono+"','"+personaID+"','"+tipoID+"','"+email+"')", conn);
+                //MySqlCommand cmd = new MySqlCommand("UPDATE `usuarios` SET `Nombre`='"+nombre+"',`Apellido1`='"+apellido1+"',`Apellido2`='"+apellido2+"',`NumeroTelefono`='"+telefono+"',`Cedula`='"+personaID+"',`TipoCedula`='"+tipoID+"' WHERE Correo = '"+email+"'", conn);
                 //    MySqlCommand cmd2 = new MySqlCommand("INSERT INTO  'usuarios'('Apellido1', 'Apellido2', 'NumeroTelefono', 'Cedula', TipoCedula) VALUES('" + apellido1 + "','" + apellido2 + "','" + telefono + "','" + personaID + "','" + tipoID + "') WHERE Correo = '" + email + "'", conn);
                 using (var reader = cmd.ExecuteReader())
                 {
